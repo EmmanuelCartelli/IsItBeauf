@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id=""></input>
+    <button>TEST</button>
+
+    <script>
+        async function test() {
+            const response = await fetch('http://localhost:3000/api/beaufs', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: 1,
+                    name: 'Beauf',
+                    isBeauf: true
+                })
+            });
+            const data = await response.json();
+            console.log(data);
+        }
+        async function get() {
+            const response = await fetch('http://localhost:3000/api/beaufs');
+            const data = await response.json();
+            console.log(data);
+        }
+        document.querySelector('button').addEventListener('click', () => {
+            test();
+            get();
+        });
+    </script>
+</body>
+
+</html>

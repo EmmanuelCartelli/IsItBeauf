@@ -1,4 +1,4 @@
-const Gae = require('../models/Gae');
+const Gae = require('../models/gae');
 
 exports.createGae = (req, res, next) => {
     delete req.body._id;
@@ -6,7 +6,7 @@ exports.createGae = (req, res, next) => {
         ...req.body
     });
     gae.save()
-        .then(() => res.status(201).json({ message: 'Gae enregistré !', data : req.body }))
+        .then(() => res.status(201).json({ message: 'Gae enregistré !', data: req.body }))
         .catch(error => res.status(400).json({ error }));
 };
 

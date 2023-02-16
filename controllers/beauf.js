@@ -11,7 +11,7 @@ exports.createBeauf = (req, res, next) => {
     });
     beauf.save()
         .then(() => {
-            res.status(201).json({ message: 'Beauf enregistré !', data: req.body })
+            res.status(201).json({ message: 'Beauf enregistré !', data: beauf })
         })
         .catch(error => res.status(400).json({ error }));
 };

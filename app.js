@@ -4,6 +4,7 @@ const path = require('path');
 const dotenv = require('dotenv').config({ encoding: 'latin1' });
 const app = express();
 const BeaufsRoutes = require('./routes/beauf')
+const GaeRoutes = require('./routes/gae')
 
 mongoose.connect(process.env.MONGOOSE_KEY,
     {
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/api/beaufs', BeaufsRoutes);
+app.use('/api/isitgae', GaeRoutes);
 
 
 

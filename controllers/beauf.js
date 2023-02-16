@@ -1,12 +1,13 @@
 const Beauf = require('../models/beauf');
 
 exports.createBeauf = (req, res, next) => {
-    delete req.body._id;
     const beauf = new Beauf({
         ...req.body
     });
     beauf.save()
-        .then(() => res.status(201).json({ message: 'Beauf enregistré !' }))
+        .then(() => {
+            res.status(201).json({ message: 'Beauf enregistré !', id: beauf._id }) 
+        })
         .catch(error => res.status(400).json({ error }));
 };
 

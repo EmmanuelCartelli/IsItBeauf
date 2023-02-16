@@ -14,28 +14,32 @@
 
     <script>
         async function test() {
-            const response = await fetch('http://localhost:3000/api/beaufs', {
+            fetch('http://localhost:3000/api/beaufs', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    id: 1,
                     name: 'Beauf',
                     isBeauf: true
                 })
-            });
-            const data = await response.json();
-            console.log(data);
+            })
+            .then(res => {
+                return res.json();
+            })
+            .then(data =>{
+                console.log(data)
+                get()
+            })
+            .catch(err => console.log(err))
         }
-        async function get() {
+        async function get(id) {
             const response = await fetch('http://localhost:3000/api/beaufs');
             const data = await response.json();
             console.log(data);
         }
         document.querySelector('button').addEventListener('click', () => {
             test();
-            get();
         });
     </script>
 </body>

@@ -7,7 +7,7 @@ exports.createBeauf = (req, res, next) => {
         upVotes: 0,
         downVotes: 0,
         isBeauf: bolArray[Math.floor(Math.random() * bolArray.length)],
-        originalResult: isBeauf
+        originalResult: this.isBeauf
     });
     beauf.save()
         .then(() => {
